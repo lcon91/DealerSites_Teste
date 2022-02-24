@@ -48,7 +48,7 @@ class Usuario extends Model{
         $stmt->execute();
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if(empty($usuario) || password_verify($senha, $usuario['senha'])){
+        if(empty($usuario) || !password_verify($senha, $usuario['senha'])){
             throw new Exception('Usuário e/ou Senha inválido(s)');
         }
 
