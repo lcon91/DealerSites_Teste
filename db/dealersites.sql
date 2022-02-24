@@ -16,12 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `usuario`
 --
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Luiz','luiz','123'),(2,'Luiz Costa','luizcostaon@gmail.com','$2y$10$uTS5IO/lrVWcWxWBrfuzAu0AmDIxbp7HrRG1Kto9iYe2zrV93Ot06'),(4,'Lon','lon@gmail.com','$2y$10$7mCblRqAx2oQjOiaSHsyRuHTlmlOmiV6MAD6iyGwaa/7k5rYtV8fa'),(7,'Antonio Carlos Lima Pereira','r231','$2y$10$TnbPwZIXKYu5Y2F9kWdf1.VCCeMhr7l.Zv6JbZQ3LHf7pHoju/MXm');
+INSERT INTO `usuario` VALUES (1,'Luiz Costa','luizcostaon@gmail.com','$2y$10$uTS5IO/lrVWcWxWBrfuzAu0AmDIxbp7HrRG1Kto9iYe2zrV93Ot06'),(2,'admin','admin','$2y$10$B.YlXZVqqxuGpF2C7Cj8l.1iwXgOiMKSgh1Rt7JOWiiYYmzwcbUKG');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -34,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-24  2:41:09
+-- Dump completed on 2022-02-24 20:09:40
