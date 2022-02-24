@@ -11,7 +11,12 @@ class Home extends Controller{
         } catch (Exception $e) {
             $this->add('Houve um erro na execução da listagem de usuários: ' . $e->getMessage());
         }
-        //$this->add( view('home', [['teste' => 'vixe'], ['teste' => 'Teste2']], true) );
+
         $this->add($html->getContents());
+
+        if(isset($_SESSION['erro_home'])){
+            $this->add(Alert::send('danger', $_SESSION['erro_home']));
+            unset($_SESSION['erro_home']);
+        }
     }
 }

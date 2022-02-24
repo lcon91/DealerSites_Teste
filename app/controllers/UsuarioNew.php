@@ -16,6 +16,7 @@ class UsuarioNew extends Controller{
 
             $usuario = new Usuario;
             $usuario->insert($post['nome'], $post['email'], $post['senha']);
+            
             header('location: ?class=Home');
         } catch (Exception $e) {
             $this->add(Alert::send('danger', $e->getMessage()));

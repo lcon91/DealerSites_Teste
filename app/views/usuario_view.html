@@ -1,0 +1,29 @@
+<!--[main]-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="?class=Home">Página Inicial</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Visualizar Usuário: {$email}</li>
+  </ol>
+</nav>
+
+<form method="POST" action="?class=UsuarioEdit&method=save&id={$id}">
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <label for="validationCustom01">Nome</label>
+        <input type="text" class="form-control" placeholder="Digite seu nome" value="{$nome}" name="nome" disabled>
+      </div>
+    </div>
+    <div class="form-row">
+      
+        <div class="col-md-12 mb-3">
+            <label for="validationCustomUsername">E-mail</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control"  placeholder="Digite seu E-mail" value="{$email}" aria-describedby="inputGroupPrepend" name="email" disabled>
+            </div>
+        </div>
+    </div>
+  </form>
+  <!--[/main]-->

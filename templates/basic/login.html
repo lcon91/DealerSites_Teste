@@ -1,0 +1,33 @@
+<head>
+  <title>{{title}}</title>
+
+  <link href="templates/basic/assets/css/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="templates/basic/assets/css/login.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+  
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+
+      <div class="fadeIn first">
+          <img class="image top-logo-website loaded" alt="DealerSites" title="DealerSites" height="45" id="header-top-logo-website" src="https://dealersites-content.s3.sa-east-1.amazonaws.com/dealersites/dealersites/conteudo-online/webp/Grupo-7043.webp" data-ll-status="loaded">
+      </div>
+
+      <form method="post" action="?class=Login&method=onLogin">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuário" />
+        <input type="password" id="password" class="fadeIn third" name="senha" placeholder="Senha" />
+        <input type="submit" class="fadeIn fourth" value="Login" />
+      </form>
+
+      <div id="content"></div>
+
+      <div id="formFooter">
+          Usuário Padrão: admin (senha: admin)
+      </div>
+
+    </div>
+  </div>
+
+  <script src="templates/basic/assets/js/bootstrap.min.js"></script>
+  <script src="templates/basic/assets/js/jquery.min.js"></script>
+</body>

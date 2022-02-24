@@ -9,22 +9,34 @@ class Template{
         $this->config = $config;
         $this->template_path = 'templates/'.$this->config['template'];
         $this->base = file_get_contents("{$this->template_path}/base.html");
+        $this->login = file_get_contents("{$this->template_path}/login.html");
     }
 
     public function render($content){
         
-        $this->render_app_configuration();
+        $this->base = $this->renderAppConfiguration($this->base);
         
         $this->base = str_replace('{{CONTENT}}', $content, $this->base);
 
         echo $this->base;
     }
 
-    private function render_app_configuration(){
+    private function renderAppConfiguration($layout){
         $app_lines = $this->config['app'];
         
         foreach($app_lines as $line => $value){
-            $this->base = str_replace('{{'.$line.'}}', $value, $this->base);
+            $layout = str_replace('{{'.$line.'}}', $value, $layout);
         }
+
+        return $layout;
+    }
+
+    public function renderLogin($content){
+        
+        $this->login = $this->renderAppConfiguration($this->login);
+        
+        $this->login = str_replace('{{CONTENT}}', $content, $this->login);
+
+        echo $this->login;
     }
 }

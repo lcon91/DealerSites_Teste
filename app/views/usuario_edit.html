@@ -1,7 +1,12 @@
 <!--[main]-->
-<h1 class="mt-5">Criar novo usuário</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="?class=Home">Página Inicial</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Editar Usuário: {$email}</li>
+  </ol>
+</nav>
 
-<form method="POST" action="?class=UsuarioNew&method=save">
+<form method="POST" action="?class=UsuarioEdit&method=save&id={$id}">
     <div class="form-row">
       <div class="col-md-12 mb-3">
         <label for="validationCustom01">Nome</label>
@@ -27,7 +32,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
             </div>
-            <input type="password" class="form-control"  placeholder="Digite sua senha" required name="senha">
+            <input type="password" class="form-control"  placeholder="Digite sua senha" name="senha">
           </div>
         </div>
       <div class="col-md-6 mb-3">
@@ -36,7 +41,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
             </div>
-            <input type="password" class="form-control"  placeholder="Confirme a sua senha" required name="senha2">
+            <input type="password" class="form-control"  placeholder="Confirme a sua senha" name="senha2">
           </div>
       </div>
     </div>

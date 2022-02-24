@@ -1,28 +1,27 @@
 <?php
 
-class Model{
-    protected $table;
-    protected $pk;
-    protected $attributes;
-    protected $data;
+abstract class Model{
+    public function find($id = null){
+        $pdo = new DBConnection;
 
-    protected function addAttribute($attribute){
-        $this->attributes[] = $attribute;
+        $table = $this->getTable();
+        $pk = $this->getPK();
+        $stmt = $pdo->prepare("select * from {$table} where {$pk} = :id");
+        
+        $stmt->bindValue(':id', $id);
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function __set($name, $value){
-        if(in_array($name, $this->attributes)){
-            $this->data[$name] = $value;
-        }
+    public function getPK(){
+        $class = get_class($this);
+        return constant("{$class}::pk");
     }
 
-    public function __get($name){
-        if(in_array($name, $this->attributes)){
-            return $this->data[$name];
-        }
-    }
-
-    public function save(){
-
+    public function getTable(){
+        $class = get_class($this);
+        return constant("{$class}::table");
     }
 }

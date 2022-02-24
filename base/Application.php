@@ -10,18 +10,34 @@ class Application{
     }
 
     public function run(){
-        $params = $_GET;
-        $class = $params['class'] ?? 'Home';
-        $method = $params['method'] ?? null;
-        
-        $controller = new $class;
-        
-        if($method){
-            $controller->$method();
-        }
-        
-        $content = $controller;
+        session_start();
 
-        $this->template->render($content);
+        if(!isset($_SESSION['dealersite_user_id'])){
+            $controller = new Login;
+            $method = $params['method'] ?? null;
+            
+            $content = $controller;
+            if($method){
+                $controller->$method();
+            }
+
+            $this->template->renderLogin($content);
+        }else{
+            $params = $_GET;
+            $class = $params['class'] ?? 'Home';
+            $method = $params['method'] ?? null;
+            
+            $controller = new $class;
+            
+            if($method){
+                $controller->$method();
+            }
+            
+            $content = $controller;
+
+            $this->template->render($content);
+        }
+
+        
     }
 }

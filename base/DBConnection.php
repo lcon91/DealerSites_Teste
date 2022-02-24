@@ -8,6 +8,7 @@ class DBConnection extends PDO{
         $usr = $dbConfig['usr'];
         $psw = $dbConfig['psw'];
         parent::__construct("{$driver}:host={$host};dbname={$name}", $usr, $psw);
+        $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 }
 

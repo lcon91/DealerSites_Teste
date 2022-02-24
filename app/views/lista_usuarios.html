@@ -1,4 +1,9 @@
 <!--[main]-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Página Inicial</li>
+  </ol>
+</nav>
 <h1 class="mt-5">Listagem de Usuários</h1>
 
 <table class="table">
@@ -7,7 +12,7 @@
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Ações</th>
+        <th scope="col" style="text-align: right;">Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -16,10 +21,10 @@
         <th scope="row">{$id}</th>
         <td>{$nome}</td>
         <td>{$email}</td>
-        <td>
+        <td style="text-align: right;">
             <div class="btn-group">
-                <a class="btn btn-primary" href="?class=UsuarioView"><i title="Visualizar Usuário..." class="fa-solid fa-eye"></i></a>
-                <a class="btn btn-primary" href="?class=UsuarioEdit"><i title="Editar Usuário..." class="fa-solid fa-user-pen"></i></a>
+                <a class="btn btn-primary" href="?class=UsuarioView&id={$id}"><i title="Visualizar Usuário..." class="fa-solid fa-eye"></i></a>
+                <a class="btn btn-primary" href="?class=UsuarioEdit&id={$id}"><i title="Editar Usuário..." class="fa-solid fa-user-pen"></i></a>
             </div>
         </td>
       </tr>
