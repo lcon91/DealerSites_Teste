@@ -1,0 +1,45 @@
+<!--[main]-->
+<h1 class="mt-5">Criar novo usuário</h1>
+
+<form method="POST" action="?class=UsuarioNew&method=save">
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <label for="validationCustom01">Nome</label>
+        <input type="text" class="form-control" placeholder="Digite seu nome" required name="nome">
+      </div>
+    </div>
+    <div class="form-row">
+      
+        <div class="col-md-12 mb-3">
+            <label for="validationCustomUsername">E-mail</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control"  placeholder="Digite seu E-mail" aria-describedby="inputGroupPrepend" required name="email">
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">Senha</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control"  placeholder="Digite sua senha" required name="senha">
+          </div>
+        </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom03">Confirme a senha</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control"  placeholder="Confirme a sua senha" required name="senha2">
+          </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+  </form>
+  <!--[/main]-->
