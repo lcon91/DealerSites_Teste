@@ -12,18 +12,20 @@ class Application{
     public function run(){
         session_start();
 
+        $params = $_GET;
+
         if(!isset($_SESSION['dealersite_user_id'])){
             $controller = new Login;
             $method = $params['method'] ?? null;
             
-            $content = $controller;
             if($method){
                 $controller->$method();
             }
 
+            $content = $controller;
+
             $this->template->renderLogin($content);
         }else{
-            $params = $_GET;
             $class = $params['class'] ?? 'Home';
             $method = $params['method'] ?? null;
             
@@ -37,7 +39,5 @@ class Application{
 
             $this->template->render($content);
         }
-
-        
     }
 }
